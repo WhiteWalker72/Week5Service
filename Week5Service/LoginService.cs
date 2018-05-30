@@ -19,9 +19,5 @@ namespace Week5Service
             return user != null && user.Password.Equals(password);
         }
 
-        public User GetUser(string username)
-        {
-            return Main.Instance.PersistenceService.FindUserByID(username); 
-        }
     }
 }

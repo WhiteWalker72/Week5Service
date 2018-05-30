@@ -20,7 +20,7 @@ namespace Week5Service
 
         public void Register(string username, string password)
         {
-            Main.Instance.PersistenceService.InsertOrUpdateUser(new User(username, password, 20));
+            Main.Instance.PersistenceService.InsertOrUpdateUser(new User(username, password, 20, new List<ProductItem>()));
         }
 
         public string GeneratePassword()

@@ -10,27 +10,28 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace Week5Service.Domain
 {
     [BsonIgnoreExtraElements]
-    [DataContract]
     public class User 
     {
-        public User(string name, string password, double money)
+        public User(string name, string password, double money, List<ProductItem> productList)
         {
             Name = name;
             Password = password;
             Money = money;
+            ProductItemList = productList;
         }
 
         [BsonElement("name")]
-        [DataMember]
         public string Name { get; set; }
 
         [BsonElement("password")]
-        [DataMember]
         public string Password { get; set; }
 
         [BsonElement("money")]
-        [DataMember]
         public double Money { get; set; }
 
+        [BsonElement("product_items")]
+        public List<ProductItem> ProductItemList { get; set; }
+
     }
+
 }

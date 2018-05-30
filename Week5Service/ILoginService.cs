@@ -15,7 +15,5 @@ namespace Week5Service
         [OperationContract]
         bool Authenticate(string username, string password);
 
-        [OperationContract]
-        User GetUser(string username);
     }
 }

@@ -13,8 +13,15 @@ namespace Week5Service
     {
         public bool Authenticate(string username, string password)
         {
-            User user = Main.Instance.PersistenceService.FindUserById(username);
+            if (username == null || password == null)
+                return false;
+            User user = Main.Instance.PersistenceService.FindUserByID(username);
             return user != null && user.Password.Equals(password);
+        }
+
+        public User GetUser(string username)
+        {
+            return Main.Instance.PersistenceService.FindUserByID(username); 
         }
     }
 }

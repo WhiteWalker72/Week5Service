@@ -15,12 +15,12 @@ namespace Week5Service
 
         public bool AccountExists(string username)
         {
-            return Main.Instance.PersistenceService.FindUserById(username) != null;
+            return Main.Instance.PersistenceService.FindUserByID(username) != null;
         }
 
         public void Register(string username, string password)
         {
-            Main.Instance.PersistenceService.InsertOrUpdateUser(new User(username, password));
+            Main.Instance.PersistenceService.InsertOrUpdateUser(new User(username, password, 20));
         }
 
         public string GeneratePassword()

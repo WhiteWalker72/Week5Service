@@ -22,9 +22,9 @@ namespace Week5Service.Peristence
             return Factory.FindAllUsers();
         }
 
-        public User FindUserById(string identifier)
+        public User FindUserByID(string identifier)
         {
-            return Factory.FindUserById(identifier);
+            return Factory.FindUserByID(identifier);
         }
 
         public void InsertOrUpdateUser(User dto)
@@ -35,6 +35,26 @@ namespace Week5Service.Peristence
         public void DeleteUser(string identifier)
         {
             Factory.DeleteUser(identifier);
+        }
+
+        public List<Product> FindAllProducts()
+        {
+            return Factory.FindAllProducts();
+        }
+
+        public Product FindProductByID(string identifier)
+        {
+            return Factory.FindProductByID(identifier);
+        }
+
+        public void InsertOrUpdateProduct(Product dto)
+        {
+            Factory.InsertOrUpdateProduct(dto);
+        }
+
+        public void DeleteProduct(string identifier)
+        {
+            Factory.DeleteProduct(identifier);
         }
 
     }

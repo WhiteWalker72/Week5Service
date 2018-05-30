@@ -11,11 +11,18 @@ namespace Week5Service.Peristence
     {
         private readonly IMongoDBDatabase database;
         private readonly IDAO<User> userDAO;
+        private readonly IDAO<Product> productDAO;
 
         public MongoPersistenceFactory(IMongoDBDatabase mongoDatabase)
         {
-            this.database = mongoDatabase;
-            this.userDAO = new UserDAOMongoImpl(mongoDatabase.GetDatabase().GetCollection<User>("users"));
+            database = mongoDatabase;
+            userDAO = new UserDAOMongoImpl(mongoDatabase.GetDatabase().GetCollection<User>("users"));
+            productDAO = new ProductDAOMongoImpl(mongoDatabase.GetDatabase().GetCollection<Product>("products"));
+        }
+
+        public void DeleteProduct(string identifier)
+        {
+            productDAO.Delete(identifier);
         }
 
         public void DeleteUser(string identifier)
@@ -23,14 +30,29 @@ namespace Week5Service.Peristence
             userDAO.Delete(identifier);
         }
 
+        public List<Product> FindAllProducts()
+        {
+            return productDAO.FindAll();
+        }
+
         public List<User> FindAllUsers()
         {
             return userDAO.FindAll();
         }
 
-        public User FindUserById(string identifier)
+        public Product FindProductByID(string identifier)
+        {
+            return productDAO.FindById(identifier);
+        }
+
+        public User FindUserByID(string identifier)
         {
             return userDAO.FindById(identifier);
+        }
+
+        public void InsertOrUpdateProduct(Product dto)
+        {
+            productDAO.InsertOrUpdate(dto);
         }
 
         public void InsertOrUpdateUser(User dto)

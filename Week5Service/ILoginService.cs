@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Week5Service.Domain;
 
 namespace Week5Service
 {
@@ -13,5 +14,8 @@ namespace Week5Service
     {
         [OperationContract]
         bool Authenticate(string username, string password);
+
+        [OperationContract]
+        User GetUser(string username);
     }
 }

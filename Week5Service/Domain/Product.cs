@@ -11,26 +11,27 @@ namespace Week5Service.Domain
 {
     [BsonIgnoreExtraElements]
     [DataContract]
-    public class User 
+    public class Product
     {
-        public User(string name, string password, double money)
+
+        public Product(string name, double price, int amountInStore)
         {
             Name = name;
-            Password = password;
-            Money = money;
+            Price = price;
+            this.AmountInStock = amountInStore;
         }
 
         [BsonElement("name")]
         [DataMember]
         public string Name { get; set; }
 
-        [BsonElement("password")]
+        [BsonElement("price")]
         [DataMember]
-        public string Password { get; set; }
+        public double Price { get; set; }
 
-        [BsonElement("money")]
+        [BsonElement("stock")]
         [DataMember]
-        public double Money { get; set; }
+        public int AmountInStock { get; set; }
 
     }
 }

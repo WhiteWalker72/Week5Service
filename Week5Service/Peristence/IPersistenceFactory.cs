@@ -12,11 +12,19 @@ namespace Week5Service.Peristence
 
         List<User> FindAllUsers();
 
-        User FindUserById(string identifier);
+        User FindUserByID(string name);
 
         void InsertOrUpdateUser(User dto);
 
         void DeleteUser(string identifier);
+
+        List<Product> FindAllProducts();
+
+        Product FindProductByID(string identifier);
+
+        void InsertOrUpdateProduct(Product dto);
+
+        void DeleteProduct(string identifier);
 
     }
 }

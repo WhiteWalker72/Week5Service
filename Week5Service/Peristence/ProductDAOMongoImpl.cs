@@ -1,36 +1,36 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Week5Service.Domain;
-using MongoDB.Driver;
 
 namespace Week5Service.Peristence
 {
-    class UserDAOMongoImpl : IDAO<User>
+    class ProductDAOMongoImpl : IDAO<Product>
     {
-        private readonly IMongoCollection<User> collection;
+        private readonly IMongoCollection<Product> collection;
 
-        public UserDAOMongoImpl(IMongoCollection<User> collection)
+        public ProductDAOMongoImpl(IMongoCollection<Product> collection)
         {
             this.collection = collection;
         }
 
-        public List<User> FindAll()
+        public List<Product> FindAll()
         {
             return collection.Find(_ => true).ToList();
         }
 
-        public User FindById(string identifier)
+        public Product FindById(string identifier)
         {
-            List <User> resultList = collection.Find(x => x.Name.Equals(identifier)).ToList();
+            List<Product> resultList = collection.Find(x => x.Name.Equals(identifier)).ToList();
             if (resultList.Count < 1)
                 return null;
             return resultList.First();
         }
 
-        public void InsertOrUpdate(User dto)
+        public void InsertOrUpdate(Product dto)
         {
             collection.ReplaceOne(
                 x => x.Name == dto.Name,
@@ -39,9 +39,10 @@ namespace Week5Service.Peristence
             );
         }
 
-        public void Delete(string identifier)
+        public void Delete(string productName)
         {
-            collection.DeleteOne(x => x.Name == identifier);
+            collection.DeleteOne(x => x.Name == productName);
         }
+
     }
 }

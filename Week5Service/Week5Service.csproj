@@ -72,13 +72,13 @@
     <Compile Include="IUserService.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="Peristence\DAO.cs" />
-    <Compile Include="Peristence\IMongoDBDatabase.cs" />
-    <Compile Include="Peristence\IPersistenceFactory.cs" />
-    <Compile Include="Peristence\MongoPersistenceFactory.cs" />
-    <Compile Include="Peristence\PersistenceService.cs" />
-    <Compile Include="Peristence\ProductDAOMongoImpl.cs" />
-    <Compile Include="Peristence\UserDAOMongoImpl.cs" />
+    <Compile Include="Persistence\DAO.cs" />
+    <Compile Include="Persistence\IMongoDBDatabase.cs" />
+    <Compile Include="Persistence\IPersistenceFactory.cs" />
+    <Compile Include="Persistence\MongoPersistenceFactory.cs" />
+    <Compile Include="Persistence\PersistenceService.cs" />
+    <Compile Include="Persistence\ProductDAOMongoImpl.cs" />
+    <Compile Include="Persistence\UserDAOMongoImpl.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterService.cs" />
@@ -90,7 +90,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Peristence\MlabDB.cs" />
+    <Compile Include="Persistence\MlabDB.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
